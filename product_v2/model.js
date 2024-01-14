@@ -1,27 +1,33 @@
-const sequelize = require('../config/sequelize');
-const { Sequelize, DataTypes } = require('sequelize');
+const { Sequelize, DataTypes, Model } = require('sequelize');
 
-const Product = sequelize.define('product', {
-  users_id: {
+const sequelize = new Sequelize('sqlite::memory:');
+
+class Product extends Model {}
+
+Product.init({
+ users_id: {
     type: DataTypes.INTEGER,
     allowNull: false,
-  },
-  name: {
+ },
+ name: {
     type: DataTypes.STRING,
     allowNull: false,
-  },
-  price: {
+ },
+ price: {
     type: DataTypes.INTEGER,
-  },
-  stok: {
+ },
+ stok: {
     type: DataTypes.INTEGER,
-  },
-  status: { 
+ },
+ status: { 
     type: DataTypes.BOOLEAN,
-  },
-  image_url: {
+ },
+ image_url: {
     type: DataTypes.TEXT,
-  },
+ },
+}, {
+ sequelize,
+ modelName: 'product',
 });
 
 module.exports = Product;
