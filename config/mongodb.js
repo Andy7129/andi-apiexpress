@@ -13,6 +13,6 @@ const client = new MongoClient(url);
 })();
 
 
-const db = client.db('eduwork');
+const db = client.db('toko');
 
 module.exports = db;

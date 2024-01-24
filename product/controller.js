@@ -54,7 +54,7 @@ const store = (req, res) => {
     connection.query(
       {
         sql: 'INSERT INTO product (users_id, name, price, stok, status, image_url) VALUES (?, ?, ?, ?, ?, ?)',
-        values: [parseInt(users_id), name, price, stok, status, `http://localhost:3000/public/${image.originalname}`],
+        values: [parseInt(users_id), name, price, stok, status, `'http://localhost:3000/public/${image.originalname}'`],
       },
       _response(res)
     );
